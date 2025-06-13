@@ -1,0 +1,27 @@
+<div class="updates-container">
+  <h2>📢 Latest Updates</h2>
+
+  <div *ngIf="loading" class="loading">Loading updates...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && !error">
+    <div *ngFor="let post of posts" class="post-card">
+      <div class="post-header">
+        <span class="badge" [ngClass]="{
+          'announcement': post.updateType === 'ANNOUNCEMENT',
+          'general': post.updateType === 'GENERAL'
+        }">{{ post.updateType }}</span>
+        <span class="date">{{ post.createdAt | date:'medium' }}</span>
+      </div>
+      <p class="content">{{ post.content }}</p>
+      <div *ngIf="post.replies && post.replies.length > 0" class="replies">
+        <h4>💬 Replies:</h4>
+        <ul>
+          <li *ngFor="let reply of post.replies">
+            {{ reply.content }} <span class="reply-date">({{ reply.createdAt | date:'short' }})</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

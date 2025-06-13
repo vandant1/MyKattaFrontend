@@ -1,0 +1,17 @@
+<div class="admin-panel-container">
+  <h2>🛠️ Admin Panel</h2>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="currentAdmins.length === 0 && !errorMessage" class="empty-state">
+    No active admins found.
+  </div>
+
+  <div *ngFor="let admin of currentAdmins" class="admin-card">
+    <h4>Admin ID: {{ admin.studentId }}</h4>
+    <p><strong>Action:</strong> {{ admin.action }}</p>
+    <small><strong>Since:</strong> {{ admin.startDate | date: 'medium' }}</small>
+  </div>
+</div>

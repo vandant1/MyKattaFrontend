@@ -1,0 +1,9 @@
+<div class="upload-container">
+  <h2>📤 Upload a File</h2>
+
+  <input type="file" (change)="onFileSelected($event)" />
+
+  <button class="btn" (click)="uploadFile()">Upload</button>
+
+  <p class="message" *ngIf="message">{{ message }}</p>
+</div>

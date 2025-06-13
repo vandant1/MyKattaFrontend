@@ -1,0 +1,21 @@
+<div class="file-list-container">
+  <h2>Your Uploaded Files 📄</h2>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="files.length === 0" class="no-files">No files found. 📁</div>
+
+  <div class="file-card" *ngFor="let file of files">
+    <div class="file-info">
+      <h4>{{ file.fileName }}</h4>
+      <p>{{ file.description }}</p>
+      <small>Type: {{ file.fileType }}</small>
+      <small>Downloads: {{ file.downloadCount }}</small>
+    </div>
+    <button class="download-btn" (click)="downloadFile(file.id)">
+      ⬇️ Download
+    </button>
+  </div>
+</div>
