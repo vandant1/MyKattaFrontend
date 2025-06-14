@@ -4,6 +4,7 @@ export interface Student {
   name: string;
   email: string;
   totalCoins: number;
+  fullName: string;
   isActive: boolean;
   createdAt: string;
   contributions: number;
